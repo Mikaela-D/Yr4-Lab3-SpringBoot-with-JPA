@@ -25,7 +25,7 @@ public class ProductService {
     }
 
     public Product updateProduct(Long id, Product updatedProduct) {
-        Optional<Product> existingProduct = productRepository.findById(id);  // Now finding by ID
+        Optional<Product> existingProduct = productRepository.findById(id);
         if (existingProduct.isPresent()) {
             Product productToUpdate = existingProduct.get();
             productToUpdate.setProductName(updatedProduct.getProductName());
@@ -37,7 +37,7 @@ public class ProductService {
     }
 
     public List<Product> deleteProduct(Long id) {
-        Optional<Product> existingProduct = productRepository.findById(id);  // Now finding by ID
+        Optional<Product> existingProduct = productRepository.findById(id);
         if (existingProduct.isPresent()) {
             productRepository.delete(existingProduct.get());
             return productRepository.findAll();
